@@ -18,8 +18,8 @@ end
 csv_filename = ARGV[0]
 
 users = []
-CSV.foreach(csv_filename) do |row|
-  users.push(User.new(row[0], row[1], row[2]))
+CSV.foreach(csv_filename) do |name, password, group|
+  users.push(User.new(name, password, group))
 end
 
 Aws.config[:region] = 'ap-northeast-1'
